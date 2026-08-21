@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>CZA Automobile</title>
 
 <style>
 
+/* =========================================
+   VARIABLES
+   ========================================= */
+
 :root{
-  --gold: #d4af37;
-  --gold-light: #f5e6a8;
-  --gold-dark: #8a6d1f;
-  --silver: #c9ccd1;
-  --silver-light: #f2f3f5;
-  --bg: #060606;
+  --gold:#d4af37;
+  --gold-light:#f5e6a8;
+  --gold-dark:#8a6d1f;
+
+  --silver:#c9ccd1;
+  --silver-light:#f2f3f5;
+
+  --bg:#060606;
 }
+
+
+/* =========================================
+   RESET
+   ========================================= */
 
 *{
   margin:0;
@@ -30,12 +43,46 @@ body{
   overflow:hidden;
 }
 
+
+/* =========================================
+   BODY
+   ========================================= */
+
 body{
   font-family:'Georgia','Times New Roman',serif;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   position:relative;
+}
+
+
+/* =========================================
+   PARTICLES.JS
+   ========================================= */
+
+#particles-js{
+  position:fixed !important;
+
+  inset:0 !important;
+
+  width:100% !important;
+  height:100% !important;
+
+  z-index:1 !important;
+
+  pointer-events:none !important;
+}
+
+#particles-js canvas{
+  position:absolute !important;
+
+  inset:0 !important;
+
+  width:100% !important;
+  height:100% !important;
 }
 
 
@@ -45,14 +92,17 @@ body{
 
 .glow{
   position:fixed;
+
   inset:0;
 
   background:
+
     radial-gradient(
       ellipse 60% 45% at 50% 45%,
       rgba(212,175,55,0.10),
       transparent 70%
     ),
+
     radial-gradient(
       ellipse 120% 100% at 50% 50%,
       rgba(0,0,0,0) 0%,
@@ -60,115 +110,8 @@ body{
     );
 
   pointer-events:none;
+
   z-index:2;
-}
-
-
-/* =========================================
-   GOLD PARTICLES + PULSE BACKGROUND
-   ========================================= */
-
-#particles{
-  position:fixed;
-  inset:0;
-  width:100%;
-  height:100%;
-  display:block;
-  pointer-events:none;
-  z-index:1;
-}
-
-
-/* =========================================
-   PULSE GLOW
-   ========================================= */
-
-.pulse-bg{
-  position:fixed;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-  z-index:1;
-}
-
-.pulse-bg span{
-  position:absolute;
-
-  width:3px;
-  height:3px;
-
-  border-radius:50%;
-
-  background:#d4af37;
-
-  box-shadow:
-    0 0 8px 2px rgba(212,175,55,0.30),
-    0 0 25px 8px rgba(212,175,55,0.08);
-
-  opacity:0;
-
-  animation:pulseGold 5s ease-in-out infinite;
-}
-
-.pulse-bg span:nth-child(1){
-  top:18%;
-  left:15%;
-  animation-delay:0s;
-}
-
-.pulse-bg span:nth-child(2){
-  top:30%;
-  left:82%;
-  animation-delay:1.2s;
-}
-
-.pulse-bg span:nth-child(3){
-  top:63%;
-  left:12%;
-  animation-delay:2.4s;
-}
-
-.pulse-bg span:nth-child(4){
-  top:76%;
-  left:88%;
-  animation-delay:3.6s;
-}
-
-.pulse-bg span:nth-child(5){
-  top:48%;
-  left:94%;
-  animation-delay:0.8s;
-}
-
-.pulse-bg span:nth-child(6){
-  top:85%;
-  left:28%;
-  animation-delay:2s;
-}
-
-@keyframes pulseGold{
-
-  0%,
-  100%{
-    opacity:0;
-    transform:scale(0.7);
-  }
-
-  30%{
-    opacity:0.35;
-    transform:scale(1);
-  }
-
-  50%{
-    opacity:0.12;
-    transform:scale(1.7);
-  }
-
-  70%{
-    opacity:0.28;
-    transform:scale(1);
-  }
-
 }
 
 
@@ -178,10 +121,13 @@ body{
 
 .stage{
   position:relative;
+
   z-index:5;
 
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
 
   text-align:center;
@@ -210,6 +156,7 @@ body{
   margin-bottom:28px;
 
   background:
+
     linear-gradient(
       180deg,
       var(--silver-light) 0%,
@@ -218,6 +165,7 @@ body{
     );
 
   -webkit-background-clip:text;
+
   background-clip:text;
 
   color:transparent;
@@ -262,6 +210,7 @@ body{
   height:44px;
 
   background:
+
     linear-gradient(
       180deg,
       transparent,
@@ -319,6 +268,7 @@ body{
   margin-bottom:15px;
 
   background:
+
     linear-gradient(
       180deg,
       #ffffff 0%,
@@ -328,6 +278,7 @@ body{
     );
 
   -webkit-background-clip:text;
+
   background-clip:text;
 
   color:transparent;
@@ -360,6 +311,7 @@ body{
   margin-bottom:15px;
 
   background:
+
     linear-gradient(
       180deg,
       #ffffff 0%,
@@ -369,6 +321,7 @@ body{
     );
 
   -webkit-background-clip:text;
+
   background-clip:text;
 
   color:transparent;
@@ -423,6 +376,7 @@ body{
   height:1px;
 
   background:
+
     linear-gradient(
       90deg,
       transparent,
@@ -431,7 +385,9 @@ body{
 }
 
 .status::after{
+
   background:
+
     linear-gradient(
       90deg,
       var(--gold),
@@ -495,6 +451,7 @@ body{
   color:#0a0a0a;
 
   background:
+
     linear-gradient(
       135deg,
       var(--gold-dark) 0%,
@@ -513,13 +470,19 @@ body{
   isolation:isolate;
 
   transition:
+
     transform 0.45s cubic-bezier(.2,.9,.3,1),
+
     box-shadow 0.45s ease,
+
     background-position 1.2s ease;
 
   box-shadow:
+
     0 0 0 1px rgba(212,175,55,0.5),
+
     0 8px 24px -8px rgba(212,175,55,0.35),
+
     inset 0 1px 0 rgba(255,255,255,0.4);
 
   background-position:0% 50%;
@@ -535,6 +498,7 @@ body{
   z-index:-1;
 
   background:
+
     linear-gradient(
       115deg,
       transparent 30%,
@@ -566,8 +530,11 @@ body{
   background-position:100% 50%;
 
   box-shadow:
+
     0 0 0 1px rgba(245,230,168,0.8),
+
     0 14px 34px -8px rgba(212,175,55,0.55),
+
     inset 0 1px 0 rgba(255,255,255,0.55);
 }
 
@@ -581,6 +548,7 @@ body{
 
 .cta:focus-visible{
   outline:2px solid var(--gold-light);
+
   outline-offset:4px;
 }
 
@@ -601,6 +569,7 @@ footer.brand-credit{
   bottom:22px;
 
   left:0;
+
   right:0;
 
   text-align:center;
@@ -652,12 +621,16 @@ footer.brand-credit{
 
   from{
     opacity:0;
-    transform:translateY(-10px);
+
+    transform:
+      translateY(-10px);
   }
 
   to{
     opacity:1;
-    transform:translateY(0);
+
+    transform:
+      translateY(0);
   }
 
 }
@@ -666,12 +639,16 @@ footer.brand-credit{
 
   from{
     opacity:0;
-    transform:translateY(14px);
+
+    transform:
+      translateY(14px);
   }
 
   to{
     opacity:1;
-    transform:translateY(0);
+
+    transform:
+      translateY(0);
   }
 
 }
@@ -681,12 +658,16 @@ footer.brand-credit{
   0%,
   100%{
     opacity:1;
-    transform:scale(1);
+
+    transform:
+      scale(1);
   }
 
   50%{
     opacity:0.4;
-    transform:scale(0.75);
+
+    transform:
+      scale(0.75);
   }
 
 }
@@ -702,6 +683,7 @@ footer.brand-credit{
   body{
     width:100%;
     height:100%;
+
     overflow:hidden;
   }
 
@@ -834,26 +816,31 @@ footer.brand-credit{
 
   .my-logo{
     height:28px;
+
     margin-bottom:15px;
   }
 
   .divider{
     height:20px;
+
     margin-bottom:14px;
   }
 
   .client-logo{
     height:65px;
+
     margin-bottom:12px;
   }
 
   .site-name{
     font-size:17px;
+
     margin-bottom:15px;
   }
 
   .site-phone{
     font-size:12px;
+
     margin-bottom:15px;
   }
 
@@ -870,17 +857,12 @@ footer.brand-credit{
 
 @media (prefers-reduced-motion:reduce){
 
-  #particles{
-    display:none;
+  #particles-js{
+    display:none !important;
   }
 
   .status .dot{
     animation:none;
-  }
-
-  .pulse-bg span{
-    animation:none;
-    opacity:0.15;
   }
 
   *{
@@ -890,32 +872,30 @@ footer.brand-credit{
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- PARTICLES -->
-<canvas id="particles"></canvas>
+<!-- =========================================
+     PARTICLES.JS
+     ========================================= -->
+
+<div id="particles-js"></div>
 
 
-<!-- ORIGINAL GLOW -->
+<!-- =========================================
+     ORIGINAL GLOW
+     ========================================= -->
+
 <div class="glow"></div>
 
 
-<!-- BACKGROUND PULSES -->
-<div class="pulse-bg">
-
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-
-</div>
-
+<!-- =========================================
+     MAIN CONTENT
+     ========================================= -->
 
 <main class="stage">
 
@@ -934,11 +914,13 @@ footer.brand-credit{
     target="_blank"
     rel="noopener"
   >
+
     <img
       class="my-logo"
       src="logo-scalam.png"
       alt="SCALAMAFACERI.RO"
     >
+
   </a>
 
 
@@ -947,7 +929,7 @@ footer.brand-credit{
   <div class="divider"></div>
 
 
-  <!-- CLIENT LOGO -->
+  <!-- CZA LOGO -->
 
   <img
     class="client-logo"
@@ -956,7 +938,7 @@ footer.brand-credit{
   >
 
 
-  <!-- WEBSITE NAME -->
+  <!-- WEBSITE -->
 
   <div class="site-name">
     CZAAUTOMOBILE.RO
@@ -976,7 +958,9 @@ footer.brand-credit{
 
     <span class="dot"></span>
 
-    <span>Website în lucru</span>
+    <span>
+      Website în lucru
+    </span>
 
   </div>
 
@@ -1006,7 +990,9 @@ footer.brand-credit{
 </main>
 
 
-<!-- FOOTER -->
+<!-- =========================================
+     FOOTER
+     ========================================= -->
 
 <footer class="brand-credit">
 
@@ -1021,263 +1007,153 @@ footer.brand-credit{
 </footer>
 
 
+<!-- =========================================
+     PARTICLES.JS LIBRARY
+     ========================================= -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
+
+<!-- =========================================
+     PARTICLES CONFIG
+     ========================================= -->
+
 <script>
 
-/* =========================================
-   GOLD PARTICLES
-   ========================================= */
+particlesJS(
+  "particles-js",
+  {
 
-(function(){
+    "particles":{
 
-  const canvas =
-    document.getElementById('particles');
+      "number":{
 
-  const ctx =
-    canvas.getContext('2d');
+        "value":35,
 
-  let width;
-  let height;
+        "density":{
 
-  let particles = [];
+          "enable":true,
 
+          "value_area":1000
 
-  const prefersReducedMotion =
-    window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
+        }
 
+      },
 
-  /* =========================================
-     RESIZE
-     ========================================= */
 
-  function resize(){
+      "color":{
 
-    width =
-      canvas.width =
-      window.innerWidth;
+        "value":"#d4af37"
 
-    height =
-      canvas.height =
-      window.innerHeight;
+      },
 
-  }
 
+      "shape":{
 
-  window.addEventListener(
-    'resize',
-    resize
-  );
+        "type":"circle"
 
+      },
 
-  resize();
 
+      "opacity":{
 
-  /* =========================================
-     RANDOM
-     ========================================= */
+        "value":0.18,
 
-  function rand(min,max){
+        "random":true,
 
-    return Math.random() *
-      (max - min) + min;
+        "anim":{
 
-  }
+          "enable":true,
 
+          "speed":0.5,
 
-  /* =========================================
-     CREATE PARTICLE
-     ========================================= */
+          "opacity_min":0.03,
 
-  function createParticle(){
+          "sync":false
 
-    return {
+        }
 
-      x:rand(0,width),
+      },
 
-      y:rand(0,height),
 
-      size:rand(0.5,1.8),
+      "size":{
 
-      speedY:rand(0.03,0.12),
+        "value":2,
 
-      speedX:rand(-0.04,0.04),
+        "random":true,
 
-      opacity:rand(0.08,0.28),
+        "anim":{
 
-      phase:rand(0,Math.PI * 2),
+          "enable":true,
 
-      pulseSpeed:rand(0.005,0.015)
+          "speed":1,
 
-    };
+          "size_min":0.5,
 
-  }
+          "sync":false
 
+        }
 
-  /* =========================================
-     PARTICLE COUNT
-     ========================================= */
+      },
 
-  const PARTICLE_COUNT =
-    Math.min(
-      45,
-      Math.floor(
-        (window.innerWidth *
-        window.innerHeight) / 22000
-      )
-    );
 
+      "line_linked":{
 
-  for(
-    let i = 0;
-    i < PARTICLE_COUNT;
-    i++
-  ){
+        "enable":false
 
-    particles.push(
-      createParticle()
-    );
+      },
 
-  }
 
+      "move":{
 
-  /* =========================================
-     DRAW PARTICLE
-     ========================================= */
+        "enable":true,
 
-  function drawParticle(p){
+        "speed":0.25,
 
-    const pulse =
-      Math.sin(p.phase) * 0.5 + 0.5;
+        "direction":"none",
 
-    const alpha =
-      p.opacity *
-      (0.45 + pulse * 0.55);
+        "random":true,
 
+        "straight":false,
 
-    ctx.save();
+        "out_mode":"out",
 
-    ctx.globalAlpha =
-      alpha;
-
-
-    const gradient =
-      ctx.createRadialGradient(
-        p.x,
-        p.y,
-        0,
-        p.x,
-        p.y,
-        p.size * 4
-      );
-
-
-    gradient.addColorStop(
-      0,
-      'rgba(245,230,168,0.9)'
-    );
-
-    gradient.addColorStop(
-      0.35,
-      'rgba(212,175,55,0.45)'
-    );
-
-    gradient.addColorStop(
-      1,
-      'rgba(138,109,31,0)'
-    );
-
-
-    ctx.fillStyle =
-      gradient;
-
-
-    ctx.beginPath();
-
-    ctx.arc(
-      p.x,
-      p.y,
-      p.size,
-      0,
-      Math.PI * 2
-    );
-
-    ctx.fill();
-
-    ctx.restore();
-
-  }
-
-
-  /* =========================================
-     ANIMATION
-     ========================================= */
-
-  function animate(){
-
-    ctx.clearRect(
-      0,
-      0,
-      width,
-      height
-    );
-
-
-    for(const p of particles){
-
-      p.y += p.speedY;
-
-      p.x +=
-        p.speedX +
-        Math.sin(p.phase) * 0.015;
-
-      p.phase +=
-        p.pulseSpeed;
-
-
-      if(p.y > height + 5){
-
-        p.y = -5;
-
-        p.x =
-          rand(0,width);
+        "bounce":false
 
       }
 
+    },
 
-      if(p.x > width + 5){
 
-        p.x = -5;
+    "interactivity":{
+
+      "detect_on":"canvas",
+
+      "events":{
+
+        "onhover":{
+
+          "enable":false
+
+        },
+
+        "onclick":{
+
+          "enable":false
+
+        },
+
+        "resize":true
 
       }
 
-
-      if(p.x < -5){
-
-        p.x = width + 5;
-
-      }
+    },
 
 
-      drawParticle(p);
-
-    }
-
-
-    if(!prefersReducedMotion){
-
-      requestAnimationFrame(
-        animate
-      );
-
-    }
+    "retina_detect":true
 
   }
-
-
-  animate();
-
-})();
+);
 
 </script>
 
