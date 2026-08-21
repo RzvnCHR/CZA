@@ -60,7 +60,7 @@ body{
 
 
 /* =========================================
-   PARTICLES.JS
+   PARTICLES CANVAS (custom, pulsing gold)
    ========================================= */
 
 #particles-js{
@@ -73,7 +73,9 @@ body{
 
   z-index:1 !important;
 
-  pointer-events:none !important;
+  /* pointer-events left on so hover/click particle interactivity works;
+     content above (.stage, footer) sits at a higher z-index and still
+     receives clicks normally since it's on top in the stacking order */
 }
 
 #particles-js canvas{
@@ -83,6 +85,8 @@ body{
 
   width:100% !important;
   height:100% !important;
+
+  display:block;
 }
 
 
@@ -880,7 +884,7 @@ footer.brand-credit{
 
 
 <!-- =========================================
-     PARTICLES.JS
+     PARTICLES CANVAS
      ========================================= -->
 
 <div id="particles-js"></div>
@@ -1009,16 +1013,17 @@ footer.brand-credit{
 
 <!-- =========================================
      PARTICLES.JS LIBRARY
+     (classic network look, gold theme)
      ========================================= -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
-
-<!-- =========================================
-     PARTICLES CONFIG
-     ========================================= -->
-
 <script>
+
+var reduceMotion = window.matchMedia &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!reduceMotion){
 
 particlesJS(
   "particles-js",
@@ -1028,13 +1033,13 @@ particlesJS(
 
       "number":{
 
-        "value":35,
+        "value":90,
 
         "density":{
 
           "enable":true,
 
-          "value_area":1000
+          "value_area":900
 
         }
 
@@ -1050,14 +1055,22 @@ particlesJS(
 
       "shape":{
 
-        "type":"circle"
+        "type":"circle",
+
+        "stroke":{
+
+          "width":0,
+
+          "color":"#000000"
+
+        }
 
       },
 
 
       "opacity":{
 
-        "value":0.18,
+        "value":0.55,
 
         "random":true,
 
@@ -1065,9 +1078,9 @@ particlesJS(
 
           "enable":true,
 
-          "speed":0.5,
+          "speed":0.6,
 
-          "opacity_min":0.03,
+          "opacity_min":0.1,
 
           "sync":false
 
@@ -1078,19 +1091,13 @@ particlesJS(
 
       "size":{
 
-        "value":2,
+        "value":3,
 
         "random":true,
 
         "anim":{
 
-          "enable":true,
-
-          "speed":1,
-
-          "size_min":0.5,
-
-          "sync":false
+          "enable":false
 
         }
 
@@ -1099,7 +1106,15 @@ particlesJS(
 
       "line_linked":{
 
-        "enable":false
+        "enable":true,
+
+        "distance":150,
+
+        "color":"#d4af37",
+
+        "opacity":0.35,
+
+        "width":1
 
       },
 
@@ -1108,17 +1123,27 @@ particlesJS(
 
         "enable":true,
 
-        "speed":0.25,
+        "speed":1.6,
 
         "direction":"none",
 
-        "random":true,
+        "random":false,
 
         "straight":false,
 
         "out_mode":"out",
 
-        "bounce":false
+        "bounce":false,
+
+        "attract":{
+
+          "enable":false,
+
+          "rotateX":600,
+
+          "rotateY":1200
+
+        }
 
       }
 
@@ -1133,17 +1158,43 @@ particlesJS(
 
         "onhover":{
 
-          "enable":false
+          "enable":true,
+
+          "mode":"grab"
 
         },
 
         "onclick":{
 
-          "enable":false
+          "enable":true,
+
+          "mode":"push"
 
         },
 
         "resize":true
+
+      },
+
+      "modes":{
+
+        "grab":{
+
+          "distance":170,
+
+          "line_linked":{
+
+            "opacity":0.6
+
+          }
+
+        },
+
+        "push":{
+
+          "particles_nb":3
+
+        }
 
       }
 
@@ -1154,6 +1205,8 @@ particlesJS(
 
   }
 );
+
+}
 
 </script>
 
