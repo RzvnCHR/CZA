@@ -353,7 +353,7 @@ height: clamp(32px, 4.5vw, 52px);
     };
   }
 
-  const FLAKE_COUNT = Math.min(120, Math.floor((window.innerWidth * window.innerHeight) / 12000));
+  const FLAKE_COUNT = Math.min(50, Math.floor((window.innerWidth * window.innerHeight) / 12000));
   for(let i=0; i<FLAKE_COUNT; i++){ flakes.push(createFlake()); }
 
   function drawFlake(f){
