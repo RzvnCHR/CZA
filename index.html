@@ -117,6 +117,22 @@ height: clamp(32px, 4.5vw, 52px);
     animation: fadeInUp 1.6s ease forwards 1.6s;
   }
 
+  .site-phone{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:clamp(13px, 2vw, 20px);
+    letter-spacing:0.18em;
+    font-weight:600;
+    text-transform:uppercase;
+    margin-top:-8px;
+    background: linear-gradient(180deg, #ffffff 0%, var(--silver-light) 35%, var(--silver) 60%, #ffffff 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    text-shadow:0 0 30px rgba(255,255,255,0.08);
+    opacity:0;
+    animation:fadeInUp 1.6s ease forwards 1.8s;
+}
+
   .status{
     position:relative;
     display:inline-flex;
@@ -288,8 +304,8 @@ height: clamp(32px, 4.5vw, 52px);
     <img class="client-logo" src="cza-logo.png" alt="CZA Automobile">
 
     <div class="site-name">CZAAUTOMOBILE.RO</div>
-
-    <div class="status"></span>Website în lucru<br>0727 982 772</div>
+    <div class="site-phone">0727 982 772</div>
+    <div class="status"></span>Website în lucru</div>
 
     <div class="cta-wrap">
       <a class="cta" href="https://czaautomobile.autovit.ro/inventory" target="_blank" rel="noopener">
